@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarunnakshtra Naik | Student Blogs</title>
+  <meta name="description" content="A collection of five student blogs on finance, fitness, food, technology and the environment.">
+  <style>
+    :root {
+      --bg: #f6f4ef;
+      --surface: #ffffff;
+      --ink: #1e1e1c;
+      --muted: #686761;
+      --line: #dedbd3;
+      --accent: #1f4b3f;
+      --accent-light: #e4eee9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.75;
+    }
+
+    .sans { font-family: Arial, Helvetica, sans-serif; }
+
+    header {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 20px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(31,75,63,.10), transparent 30%),
+        radial-gradient(circle at 85% 75%, rgba(31,75,63,.08), transparent 28%),
+        var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero { max-width: 900px; }
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #cbded5;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font: 700 12px/1 Arial, sans-serif;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+      padding: 12px 21px;
+      border-radius: 5px;
+      font: 700 14px Arial, sans-serif;
+      transition: transform .2s, opacity .2s;
+    }
+    .btn:hover { transform: translateY(-2px); opacity: .92; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246,244,239,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+    }
+    nav .inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      font: 800 15px Arial, sans-serif;
+      letter-spacing: 1px;
+    }
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font: 600 13px Arial, sans-serif;
+      margin-left: 18px;
+    }
+    nav a:hover { color: var(--accent); }
+
+    main { max-width: 1100px; margin: auto; padding: 80px 20px; }
+
+    .section-heading {
+      margin-bottom: 42px;
+      text-align: center;
+    }
+    .section-heading h2 {
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .section-heading p { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 30px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.07);
+    }
+    .card:last-child { grid-column: 1 / -1; }
+
+    .number {
+      color: var(--accent);
+      font: 800 12px Arial, sans-serif;
+      letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .tag {
+      display: inline-block;
+      font: 700 11px Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 29px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .card p { color: var(--muted); }
+
+    article {
+      max-width: 800px;
+      margin: 110px auto 0;
+      padding-top: 80px;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 70px;
+    }
+    article .article-label {
+      font: 800 12px Arial, sans-serif;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    article h2 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    article .byline {
+      color: var(--muted);
+      font: 600 13px Arial, sans-serif;
+      margin-bottom: 30px;
+    }
+    article p { margin-bottom: 22px; font-size: 18px; }
+    .date { color: #8a887f; font-weight: 400; }
+
+    footer {
+      margin-top: 100px;
+      background: var(--ink);
+      color: #f4f2ec;
+      text-align: center;
+      padding: 45px 20px;
+    }
+    footer p { opacity: .7; font: 13px Arial, sans-serif; }
+
+    @media (max-width: 700px) {
+      nav .links { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      .card:last-child { grid-column: auto; }
+      article { margin-top: 70px; padding-top: 55px; }
+      article p { font-size: 17px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="home">
+    <div class="hero">
+      <span class="eyebrow">English Blog Assignment</span>
+      <h1>My Blog Collection</h1>
+      <p><strong>Tarunnakshtra Naik</strong><br>Roll No. 12 · XII Commerce</p>
+      <p>Five personal and everyday topics, written from a student's perspective.</p>
+      <a class="btn sans" href="#blogs">Explore the Blogs ↓</a>
+    </div>
+  </header>
+
+  <nav>
+    <div class="inner">
+      <div class="brand">TN / BLOGS</div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#blogs">Blogs</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="blogs">
+      <div class="section-heading">
+        <h2>My Five Blogs</h2>
+        <p>A collection of personal interests, experiences and everyday ideas.</p>
+      </div>
+
+      <div class="grid">
+        <a class="card" href="#finance">
+          <div class="number">01</div>
+          <div class="tag">Finance</div>
+          <h3>Why Financial Literacy Matters for Young People</h3>
+          <p>Understanding money, saving, budgeting and making responsible financial decisions.</p>
+        </a>
+
+        <a class="card" href="#perfumery">
+          <div class="number">02</div>
+          <div class="tag">Perfumery</div>
+          <h3>How I Got Into Perfumery</h3>
+          <p>How my dad's perfume collection slowly turned into my own interest in fragrances, oils and scents.</p>
+        </a>
+
+        <a class="card" href="#food">
+          <div class="number">03</div>
+          <div class="tag">Food & Culture</div>
+          <h3>The Changing Way We Eat</h3>
+          <p>How traditional food, modern cuisines, delivery apps and social media are changing food culture.</p>
+        </a>
+
+        <a class="card" href="#flight">
+          <div class="number">04</div>
+          <div class="tag">Travel Experience</div>
+          <h3>My Experience on a Flight</h3>
+          <p>A simple and memorable story about the excitement, nervousness and wonder of travelling by air.</p>
+        </a>
+
+        <a class="card" href="#environment">
+          <div class="number">05</div>
+          <div class="tag">Environment</div>
+          <h3>Small Changes Can Make a Difference</h3>
+          <p>Simple choices that students and young people can make to help protect the environment.</p>
+        </a>
+      </div>
+
+      <article id="finance">
+        <div class="article-label">01 / Finance</div>
+        <h2>Why Financial Literacy Matters for Young People</h2>
+        <div class="byline">By Tarunnakshtra Naik <span class="date">· Published 18 July 2026</span></div>
+        <p>We all use money in some way. Whether it is buying snacks after school, ordering something online or saving pocket money, money is already a part of our lives. But how many of us actually know how to manage it properly? This is where financial literacy becomes important.</p>
+        <p>Financial literacy simply means knowing how to handle money wisely. One of the first things young people can learn is how to make a budget. It does not have to be complicated. We can simply keep track of how much money we receive and where we spend it. This can help us notice unnecessary expenses and save more.</p>
+        <p>Saving money is another habit that can make a big difference. We often think that saving a small amount is pointless, but even small savings can become useful over time. Once we understand saving, we can slowly learn about investing and how money can grow over the years.</p>
+        <p>Another important lesson is knowing the difference between our needs and wants. We may want the latest phone, clothes or gadgets, but that does not necessarily mean we need them. Thinking before spending can prevent many unnecessary purchases.</p>
+        <p>Today, digital payments have made spending money easier than ever. With just a few taps, we can buy almost anything. This makes it even more important to be careful about where our money goes.</p>
+        <p>Financial literacy is not about becoming rich overnight. It is about developing good habits and becoming responsible with money. If young people start learning these lessons early, they can enter adulthood with greater confidence and better control over their finances.</p>
+        <p>After all, earning money is important, but knowing how to manage it is equally important.</p>
+      </article>
+
+      <article id="perfumery">
+        <div class="article-label">02 / Personal Interest</div>
+        <h2>How I Got Into Perfumery</h2>
+        <div class="byline">By Tarunnakshtra Naik <span class="date">· Published 21 July 2026</span></div>
+        <p>I never really planned on getting interested in perfumes. It just kind of happened. My dad has always been someone who collected perfumes, and when I was younger, I would see all these different bottles around him. At first, I did not think much about them. To me, they were just perfumes.</p>
+        <p>But slowly, I started getting curious. I would pick up a bottle, smell it and ask my dad what it was. Then I started noticing that every perfume smelled different. Some were sweet, some were fresh, some were strong and some had this really nice smell that was hard to explain.</p>
+        <p>That curiosity eventually turned into an actual interest. I started trying different fragrances whenever I got the chance. I would read about new perfumes, watch videos and look at reviews. Whenever I heard about a new fragrance, I wanted to know what it smelled like. Sometimes I would spend way too much time just reading about perfumes!</p>
+        <p>What really made me love perfumery was discovering perfume oils. I found it interesting how a small amount of oil could have such a strong and long-lasting smell. I started trying different oils and comparing them with perfumes. It became almost like a little hobby for me.</p>
+        <p>Now, I honestly find it difficult to go out without wearing a perfume. It has become part of my routine. Before leaving the house, one of the things I automatically think about is which fragrance I should wear.</p>
+        <p>I also like how perfumes can match different moods. There are fragrances I prefer during the day, some for special occasions and others that I simply wear because I like the smell.</p>
+        <p>What started with my dad's collection has slowly become something of my own. I would not call myself an expert, but I can definitely say that I am a big fan of perfumes and oils now. It is a small interest, but it is something I genuinely enjoy exploring.</p>
+        <p>Funny enough, all of this started with me simply wondering, “What does that one smell like?”</p>
+      </article>
+
+      <article id="food">
+        <div class="article-label">03 / Food</div>
+        <h2>The Changing Way We Eat</h2>
+        <div class="byline">By Tarunnakshtra Naik <span class="date">· Published 24 July 2026</span></div>
+        <p>Food has always been an important part of our lives. It is something that brings families together, reminds us of our culture and even creates memories. However, the way we eat today is quite different from the way people ate a few decades ago.</p>
+        <p>Traditional food still has a special place in our homes. Many recipes are passed down from parents and grandparents. In India, every region has its own food culture. Even within a small state like Goa, there are many dishes and flavours that are connected to local traditions.</p>
+        <p>At the same time, our food choices have become much more diverse. Today, we can easily find pizzas, burgers, noodles, sushi and many other international foods. Food delivery apps have made this even easier. Instead of going to a restaurant, we can simply order food from our phones and have it delivered to our doorstep.</p>
+        <p>Social media has also changed the way we look at food. People post pictures of their meals, review restaurants and share cooking videos. Sometimes, a particular dish becomes popular simply because people see it repeatedly online.</p>
+        <p>However, this convenience also has a downside. Fast food is easily available and can sometimes become a regular part of our diet. Eating such food occasionally is different from depending on it every day. This is why having a balance is important.</p>
+        <p>I think the best thing about modern food culture is that we do not have to choose between traditional and modern food. We can enjoy both. We can eat a family recipe one day and try a new cuisine the next.</p>
+        <p>Food is constantly changing, but its basic purpose remains the same. It brings people together. As our lifestyles change, we should continue exploring new flavours while remembering and appreciating the food traditions we already have.</p>
+      </article>
+
+      <article id="flight">
+        <div class="article-label">04 / Personal Experience</div>
+        <h2>My Experience on a Flight</h2>
+        <div class="byline">By Tarunnakshtra Naik <span class="date">· Published 27 July 2026</span></div>
+        <p>I still remember the excitement I felt when I was going to travel by flight. I had seen aeroplanes many times in the sky, but being inside one was a completely different experience. I was excited, but at the same time, I was a little nervous because I did not know exactly what to expect.</p>
+        <p>When I reached the airport, I was surprised by how big and busy the place was. There were people carrying suitcases, families waiting for their flights and announcements happening in the background. After completing all the necessary procedures, I finally reached the boarding area and waited for my flight.</p>
+        <p>When I entered the aeroplane, I immediately started looking around. Everything seemed interesting to me, from the seats and small windows to the overhead compartments. I found my seat and kept looking outside through the window while waiting for the flight to take off.</p>
+        <p>The most exciting part was the take-off. As the plane started moving faster on the runway, I could feel my excitement increasing. When the plane finally left the ground, I looked outside and saw the buildings and roads becoming smaller. It felt strange to see everything from so high above.</p>
+        <p>Once the flight reached its normal height, I became more comfortable. Looking through the window was probably my favourite part. The clouds looked completely different from what I had imagined. They looked soft and endless, almost like a huge white blanket spread across the sky.</p>
+        <p>During the journey, I also enjoyed the small things, like looking at the flight attendants, listening to the announcements and watching the scenery outside. Before I knew it, the flight was already preparing to land.</p>
+        <p>When we landed, I felt both happy and a little disappointed that the journey was over. My first flight was not just a way of travelling from one place to another. It was an experience I will remember for a long time.</p>
+        <p>Sometimes, doing something for the first time can be a little scary, but it can also become one of our best memories.</p>
+      </article>
+
+      <article id="environment">
+        <div class="article-label">05 / Environment</div>
+        <h2>Small Changes Can Make a Difference</h2>
+        <div class="byline">By Tarunnakshtra Naik <span class="date">· Published 30 July 2026</span></div>
+        <p>We often hear about pollution, climate change, plastic waste and the need to protect the environment. These problems can seem so large that we sometimes feel there is nothing an individual can do. But protecting the environment does not always require a huge action. It can begin with small changes in our daily lives.</p>
+        <p>One simple example is reducing plastic waste. Carrying a reusable water bottle or shopping bag instead of using disposable ones is a small step, but it can reduce unnecessary waste. Similarly, separating recyclable materials from other waste can make recycling easier.</p>
+        <p>Saving electricity and water is another simple habit. We can switch off lights and fans when leaving a room and avoid wasting water while brushing or washing. These actions may seem insignificant, but they become meaningful when many people follow them.</p>
+        <p>Young people can also help by choosing cleaner ways of travelling when possible. Walking, cycling or using public transport can be better alternatives to using a private vehicle for every short journey. Planting trees and taking care of existing green spaces can also help improve our surroundings.</p>
+        <p>Schools can play an important role too. Students can take part in cleanliness drives, recycling activities and awareness campaigns. We can also encourage our friends and family to develop better environmental habits.</p>
+        <p>Of course, one person cannot solve every environmental problem. Governments, businesses and communities all have important roles to play. However, that does not mean individual actions are useless.</p>
+        <p>The environment belongs to everyone, so taking care of it should also be everyone's responsibility. We do not need to completely change our lives overnight. Starting with one small habit and continuing it consistently is already a step forward.</p>
+        <p>A cleaner future does not begin with one enormous action. Sometimes, it begins with something as simple as switching off a light, carrying a reusable bottle or choosing not to litter.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer id="about">
+    <p>English Blog Assignment · Tarunnakshtra Naik · Roll No. 12 · XII Commerce · 2026</p>
+  </footer>
+</body>
+</html>
